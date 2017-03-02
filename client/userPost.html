@@ -1,0 +1,30 @@
+<template name="userPost">
+
+  {{> navbar}}
+  <h2>Post a new Message</h2>
+  <body>
+  {{> loginButtons}}
+  <br>
+
+  {{#if currentUser}}
+
+  <!-- have submit form here -->
+  <form>
+    <br><br>
+  First name:<br>
+  <input type="text" name="firstname" value="Enter First Name">
+  <br>
+  Subject:<br>
+  <input type="text" name="subject" value="Enter a Subject">
+  <br>
+  Message:<br>
+  <textarea rows="4" cols="80" name="message" placeholder="Enter Message"></textarea>
+  <br><br>
+  <input type="submit" value="Submit new message">
+</form>
+
+  {{else}}
+  <h2> login to post a new message</h2>
+  {{/if}}
+</body>
+</template>

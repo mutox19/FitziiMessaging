@@ -1,0 +1,59 @@
+<template name="homepage">
+
+  {{> navbar}}
+  <h2>Home</h2>
+  <body>
+  {{> loginButtons}}
+
+  {{#if currentUser}}
+  {{> viewMessages}}
+
+  {{else}}
+  <h2> login to view messages </h2>
+  {{/if}}
+</body>
+</template>
+
+
+
+
+
+<template name="viewMessages">
+
+
+  <h2>All Messages</h2>
+
+
+  <table class="table table-bordered table-hover">
+    <thead style="background-color:#BEC1C2;">
+    <tr>
+        <th>Date</th>
+        <th>Subject</th>
+        <th>Message</th>
+        <th>Delete Message</th>
+    </tr>
+    </thead>
+    <tbody>
+        {{#each userMess}}
+            <tr>
+            <td>
+                {{ createdAt }}
+            </td>
+            <td>
+                {{ subject }}
+            </td>
+            <td>
+                {{ message }}
+            </td>
+            <td>
+                <a href="#" class="remove" id="remove">Remove</a>
+            </td>
+
+            </tr>
+            {{/each}}
+</tbody>
+
+
+
+</table>
+</template>
