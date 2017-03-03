@@ -18,6 +18,8 @@ if (Meteor.isServer) {
 
       beforeEach(() => {
 
+        //reset the database and remove all messages
+        //before inserting a new message
         resetDatabase();
         Messages.remove({});
         messageID = Messages.insert({
@@ -30,6 +32,7 @@ if (Meteor.isServer) {
 
      });
 
+//delete a message that was previously added by user
       it('deletes a message', () => {
 
         const deleteMessage = Meteor.server.method_handlers['DeleteMessage'];
@@ -65,7 +68,7 @@ if (Meteor.isServer) {
 
            findUser = Messages.find({owner: userId});
            //check to see that there is a message
-           assert.equal(Messages.find().count(), 1);
+           assert.equal(Messages.find({owner: userId}).count(), 1);
       });
     });
   });
